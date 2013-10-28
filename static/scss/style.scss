@@ -1,4 +1,18 @@
 @import "compass";
+
+//fonts
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
+@font-face {
+    font-family: 'Marta';
+    src: url('../font/marta_regular-webfont.eot');
+    src: url('../font/marta_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/marta_regular-webfont.woff') format('woff'),
+         url('../font/marta_regular-webfont.ttf') format('truetype'),
+         url('../font/marta_regular-webfont.svg#martaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @import "../foundation/sass/settings"; //include the Foundation settings file
 @import "ajy-settings"; //include this one after the foundation settings to override settings
 

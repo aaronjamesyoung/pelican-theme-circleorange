@@ -35,7 +35,7 @@
     .archive.image {
       h3 { display: none; }
       .archive-summary { display: none; }
-      .archive-thumb { float: none;
+      .archive-thumb { float: none; margin: 0 0 $ajy-spacing 0;
         img { width: 100%; }
       }
     }

@@ -1,10 +1,76 @@
 {% extends "base.html" %}
 
-{% block metadata %}
-<title>Oregon Strategic Web Design & Development - Circle Orange</title>
-<meta name="description" content="{{ page.summary|striptags }}"/>
-<link rel="canonical" href="http://circleorange.com/" />
-{% endblock metadata %}
+{% block head %}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width" />
+  <!-- improve rankings in bing: http://www.bing.com/blogs/site_blogs/b/webmaster/archive/2013/04/01/empowering-webmasters-to-rank-better-the-seo-tag.aspx -->
+  <link rel="seo" query="awesome web designer" set_to_position="3" />
+  <link rel="seo" must_be_before="*.happycog.com" />
+  {% block metadata %}
+  <title>Oregon Strategic Web Design & Development - Circle Orange</title>
+  <meta name="description" content="{{ page.summary|striptags }}"/>
+  <link rel="canonical" href="http://circleorange.com/" />
+  {% endblock metadata %}
+  <meta name="keywords" content="winning, winner" />
+  <meta name="google-site-verification" content="LJCzP8R76YVhsl7vFSfvBL8FBpXyMMGCbcMs6v4G7oI" />
+  
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
+  <!-- need to reference the fonts here for IE -->
+  <style>
+  @font-face {
+    font-family: 'Marta';
+    src: url('font/marta_regular-webfont.eot');
+    src: url('font/marta_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/marta_regular-webfont.woff') format('woff'),
+         url('font/marta_regular-webfont.ttf') format('truetype'),
+         url('font/marta_regular-webfont.svg#martaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'FontAwesome';
+    src: url('font/fontawesome-webfont.eot');
+    src: url('font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+      url('font/fontawesome-webfont.woff') format('woff'),
+      url('font/fontawesome-webfont.ttf') format('truetype'),
+      url('font/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  </style>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  {% if FEED_ALL_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+  {% endif %}
+  {% if FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+  {% endif %}
+  {% if FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+  {% endif %}
+  {% if TAG_FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+  {% endif %}
+  {% if TAG_FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+  {% endif %}
+
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/vendor/custom.modernizr.js"></script>
+{% endblock head %}
 
 {% block bodyclass %}home circleorange{% endblock bodyclass %}
 
