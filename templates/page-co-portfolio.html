@@ -1,0 +1,128 @@
+{% extends "page-co-home.html" %}
+
+{% block metadata %}
+<title>{{ page.title }} - Circle Orange</title>
+<meta name="description" content="{{ page.summary|striptags }}"/>
+<link rel="canonical" href="http://circleorange.com/{{ page.slug }}/" />
+{% endblock metadata %}
+
+{% block bodyclass %}portfolio circleorange{% endblock bodyclass %}
+
+{% block headline %}
+<a href="http://ajy.co/contact-me/" class="header-cta">Start your project</a>
+<h4 class="site-title">
+  <a href="http://circleorange.com" class="logo">
+    <img src="{{ SITEURL}}/theme/graphics/logo-co.svg" alt="Circle Orange" />
+    Circle Orange
+  </a>
+</h4>
+{% endblock headline %}
+
+{% block content %}
+<h1>Portfolio</h1>
+
+<p class="home-buttons">
+  <a href="#" data-orbit-link="opt-e-web">Opt-e-Web</a>
+  <a href="#"data-orbit-link="ortravelexperience">Oregon Travel Experience</a>
+  <a href="#"data-orbit-link="sbcnb">Skyline Baptist Church</a>
+</p>
+
+<!-- build an Orbit, w/ clearing inside :) -->
+<div class="slideshow-wrapper">
+  <div class="preloader"></div>
+  <ul data-orbit>
+    <!-- Orbit slides -->
+    <li data-orbit-slide="opt-e-web">
+      <div class="p-img">
+        <img src="{{ SITEURL }}/images/portfolio/opteweb.png" alt="Opt-e-Web" />
+      </div>
+      <div class="p-dex">
+        <h2>Opt-e-Web</h2>
+        <p>
+          In addition to my work at Circle Orange, I am also Website Design Director for
+          <a href="http://opt-e-web.com">Opt-e-Web</a>, a small (but growing!) agency located in
+          Salem, Oregon.
+        </p>
+        <p>
+          Our current website is built on my own WordPress theme framework and uses SCSS, Zurb's Foundation
+          framework, and some elbow grease for making the site load better on mobile devices. 
+        </p>
+        <p class="p-buttons">
+          <a href="https://gist.github.com/aaronjamesyoung/3f6a781cfa74c05d623a">Code sample 2 on Github</a>
+          <a href="https://gist.github.com/aaronjamesyoung/e392098ae9716b75f4bc">Code sample 1 on Github</a>
+          <a href="http://opt-e-web.com">Opt-e-Web.com</a>
+        </p>
+      </div>
+      <div class="p-gallery">
+        <ul class="clearing-thumbs" data-clearing>
+          <li><a href="http://ajy.co/images/portfolio/opteweb-1.png"><img src="http://ajy.co/images/portfolio/small/opteweb-1.png"></a></li>
+          <li><a href="http://ajy.co/images/portfolio/opteweb-2.png"><img src="http://ajy.co/images/portfolio/small/opteweb-2.png"></a></li>
+          <li><a href="http://ajy.co/images/portfolio/opteweb-3.png"><img src="http://ajy.co/images/portfolio/small/opteweb-3.png"></a></li>
+          <li><a href="http://ajy.co/images/portfolio/opteweb-4.png"><img src="http://ajy.co/images/portfolio/small/opteweb-4.png"></a></li>
+        </ul>
+      </div>
+    </li>
+    
+    <li data-orbit-slide="ortravelexperience">
+      <div class="p-img">
+        <img src="{{ SITEURL }}/images/portfolio/ote.png" alt="Oregon Travel Experience" />
+      </div>
+      <div class="p-dex">
+        <h2>Oregon Travel Experience</h2>
+        <p>
+          OTE is a semi-independent state agency that manages Oregon's blue highway signs, several rest
+          areas in the state, and the Heritage Trees and Historical Markers scattered throughout Oregon.
+          This project was part of a large rebranding effort by OTE.
+        </p>
+        <p>
+          In this project, I developed a design built for OTE by another web agency. During the course
+          of the project, we had to make some minor changes to the design due to a shifting sense of
+          how this website would serve OTE's mission. Other than these changes, the live website is faithful
+          to the original design created for OTE.
+        </p>
+        <p>
+          I created a custom WordPress theme, building in functionality to help OTE
+          administer the website and increase user engagement. The theme is responsive and search-friendly.
+        </p>
+        <p class="p-buttons">
+          <a href="https://gist.github.com/aaronjamesyoung/932f7e7bfd5345eca49f">Code sample on Github</a>
+          <a href="http://ortravelexperience.com">ortravelexperience.com</a>
+        </p>
+      </div>
+      <div class="p-gallery">
+        <ul class="clearing-thumbs" data-clearing>
+          <li><a href="http://ajy.co/images/portfolio/ote-1.png"><img src="http://ajy.co/images/portfolio/small/ote-1.png"></a></li>
+          <li><a href="http://ajy.co/images/portfolio/ote-2.png"><img src="http://ajy.co/images/portfolio/small/ote-2.png"></a></li>
+          <li><a href="http://ajy.co/images/portfolio/ote-3.png"><img src="http://ajy.co/images/portfolio/small/ote-3.png"></a></li>
+        </ul>
+      </div>
+    </li>
+    
+    <li data-orbit-slide="sbcnb">
+      <div class="p-img">
+        <img src="{{ SITEURL }}/images/portfolio/sbcnb.png" alt="Skyline Baptist Church" />
+      </div>
+      <div class="p-dex">
+        <h2>Skyline Baptist Church</h2>
+        <p>
+          Skyline is a medium-size Baptist church located in North Bend, Oregon. While I did not create
+          the church logo and graphics used in the carousel area, I did design and
+          develop a custom WordPress theme for Skyline. The theme includes an option for Skyline
+          staff to easily switch out the "bridge" header photo without affecting the green pattern
+          overlay.
+        </p>
+        <p>
+          The site also uses WordPress for a sermon podcast and event calendar, two pieces of functionality
+          that are essential for an active church.
+        </p>
+        <p class="p-buttons">
+          <a href="https://gist.github.com/aaronjamesyoung/29c4169daebb0d78c1d8">Code sample on Github</a>
+          <a href="http://sbcnb.org">sbcnb.org</a>
+        </p>
+      </div>
+    </li>
+    
+  </ul>
+</div>
+
+{% endblock content %}

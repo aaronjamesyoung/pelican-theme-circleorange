@@ -1,0 +1,30 @@
+{% extends "page.html" %}
+
+{% block content %}
+<section>
+  <div>
+  {{ page.content }}
+    <form id="contactform" action= "">
+      <div>
+        <label for="thename">Your Name</label><input id="thename" name="thename" type="text" />
+      </div>
+      <div>
+        <label for="theemail">Your Email Address</label><input id="theemail" name="theemail" type="email" />
+      </div>
+      <div>
+        <label for="thephone">Your Phone Number</label><input name="thephone" id="thephone" type="tel" />
+      </div>
+      <div>
+        <label for="thewebsite">Your Website</label><input name="thewebsite" id="thewebsite" type="url" />
+      </div>
+      <div>
+        <label for="themessage">Message</label>
+        <textarea id="themessage" name="themessage"></textarea>
+      </div>
+      <input class="url" id="url" name="url" />
+      <input type="hidden" id="fromform" name="fromform" value="yes" />
+      <input type="submit" name="submit" id="submit-form" value="Send the message!" />
+    </form>
+  </div>
+</section>
+{% endblock content %}

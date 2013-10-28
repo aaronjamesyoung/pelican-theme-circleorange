@@ -1,0 +1,11 @@
+.site-footer { padding: $ajy-spacing 0; margin: 0;
+    background: $midgray;
+    color: $lightgray; font-size: remCalc(14px);
+    @include pie-clearfix;
+  > div { @include grid-wrap(); }
+  .ajy-social { @include grid-col(33.33%, left); }
+  .credits { @include grid-col(66.67%, right);
+      text-align: right;
+    p { margin-bottom: 0; }
+  }
+}

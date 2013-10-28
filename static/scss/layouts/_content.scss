@@ -1,0 +1,269 @@
+.site-content { background: $darkgray /*url('../graphics/photo-bg-1.jpg') no-repeat center top */; background-size: cover;
+    color: $white;
+  h1, .big-title { padding-top: $ajy-spacing;
+      color: $white; font-size: $h1-font-size; }
+  > article { @include grid-wrap();
+    .archive-articles { margin: $ajy-spacing * 2 0; }
+    .archive { /* @include grid-col(32%, left, all); */ position: relative; width: 100%;
+        margin-bottom: $ajy-spacing; padding: $ajy-spacing * 2 $ajy-spacing / 2 $ajy-spacing / 2 $ajy-spacing / 2;
+        border-top: 1px solid $white; background: rgba($white, 0.1);
+        @include pie-clearfix();
+      h3 { color: $white; }
+      .date { position: absolute; left: 0; top: 0; padding: 6px; margin: 0;
+          background: $white;
+          color: $midgray; font-family: $header-font-family; text-transform: uppercase; font-size: remCalc(14px);
+          @include border-bottom-right-radius($ajy-radius); }
+      .archive-thumb { float: left; margin: 0 $ajy-spacing / 2 0 0;
+        img { width: 100px;
+            @include border-radius($ajy-radius); }
+      }
+      .archive-links a { @include ajy-button; margin-bottom: $ajy-spacing / 2; }
+      :last-child { margin-bottom: 0; }
+    }
+    
+    //for post formats: short, image, link. For code snippets, use normal
+    
+    // Short... quotes, thoughts, announcements
+    .archive.short {
+      h3 { display: none; }
+      .archive-links { display: none; }
+      //.archive-summary { font-style: italic; font-family: $header-font-family; font-weight: 400; }
+      //.archive-summary:before { content: "\f10d"; font-family: "FontAwesome"; }
+      //.archive-summary:after { content: "\f10e"; font-family: "FontAwesome"; }
+    }
+    //image
+    .archive.image {
+      h3 { display: none; }
+      .archive-summary { display: none; }
+      .archive-thumb { float: none;
+        img { width: 100%; }
+      }
+    }
+    //link - nothing special here
+    
+    //Pagination
+    .paginator {
+      text-align: center;
+    }
+  }
+  
+  //homepage
+  .home-about { margin: $ajy-spacing * 2 0 0 0; @include pie-clearfix();
+    img { height: 150px; width: 150px;
+        border: 4px solid rgba($white, 0.6);
+        @include border-radius(1000px); }
+  }
+  
+  //images
+  img { max-width: 100%; }
+}
+
+//also homepage
+.home .site-content { padding-top: 110px; }
+
+//single posts / pages
+.single {
+  .metadata { margin-bottom: $ajy-spacing;
+      text-align: center;
+    p { display: inline-block; padding: 6px 10px 4px 10px; margin-left: $ajy-spacing / 2; margin-bottom: $ajy-spacing / 2;
+        background: $blue;
+        font-size: remCalc(14px); font-family: "FontAwesome", $header-font-family; font-weight: bold;
+        line-height: remCalc(21px);
+        @include text-shadow(0 1px 0 $midgray); @include border-radius($ajy-radius / 2);
+      i { padding-right: 6px; }
+      a { color: $yellow; }
+      a:hover { color: darken($yellow, 10); }
+    }
+    p:before { content: ''; padding-right: 8px;
+        color: $lightgray; }
+    p.tags {
+      a { padding-right: 6px; }
+    }
+  }
+  .featuredimage { margin-bottom: $ajy-spacing; 
+      background: rgba($midgray, 0.5);
+      text-align: center;
+    img { display: block; margin: 0 auto; max-width: 100%; }
+  }
+  article section, article footer { max-width: 1024px; margin: 0 auto; }
+  .summary .excerpt { text-align: center; }
+  .summary a { @include ajy-button(); } //link posts
+  article footer .ajy-social { @include grid-col(auto, left, all);
+      margin-right: $ajy-spacing; margin-bottom: $ajy-spacing; height: 100px; width: 100%;
+      background: $midgray; border: 1px solid darken($midgray, 10);
+      @include border-radius($ajy-radius); }
+  article footer .boilerplate { display: none;
+    p { margin-top: 8px; }
+  }
+}
+.page {
+  .featuredimage { padding: 0; margin-bottom: $ajy-spacing;
+      background: rgba($midgray, 0.5);
+      text-align: center;
+    img { display: block;  margin: 0 auto; max-width: 100%; }
+  }
+  article section { max-width: 1024px; margin: 0 auto; }
+}
+
+//contact form
+#contactform { margin: 0 auto $ajy-spacing auto; max-width: 500px;
+  div { margin-bottom: $ajy-spacing / 2; }
+  input, textarea { width: 100%; font-family: sans-serif;
+      @include border-radius($ajy-radius); }
+  textarea { height: 150px; }
+  label { color: $white; }
+  .url { display: none; }
+  input#submit-form { width: auto; margin: 0 auto;
+      text-align: center; font-family: $body-font-family; font-size: remCalc(14px); }
+}
+
+//circle orange - home
+.home.circleorange h4 { text-align: center; }
+.home-buttons { 
+  span { padding-right: $ajy-spacing; }
+  a { @include ajy-button();
+      display: inline-block; margin: 0 0 $ajy-spacing / 2 0; float: none;
+      font-size: remCalc(14px); }
+  a:last-of-type { margin-right: 0; }
+}
+.home-buttons.orange {
+  a { background: $orange;
+      color: $white; @include text-shadow(0 1px 0 rgba($darkgray, 0.3)); }
+  a:before { color: darken($orange, 15); }
+  a:hover { background: darken($orange, 15); }
+  a:hover:before { color: $orange; }
+}
+.hp-portfolio { margin: $ajy-spacing * 2 0; @include pie-clearfix;
+  .hp-portfolio-img { 
+    img { @include box-shadow(0 5px 20px $black); width: 100%; }
+  }
+  .hp-portfolio-desc {
+    h3 span { font-style: italic; }
+    a { @include ajy-button; }
+  }
+}
+
+.hp-how { margin: $ajy-spacing * 2 auto;
+  h3 { padding-top: $ajy-spacing; padding-bottom: 6px;
+      border-bottom: 1px dashed rgba($lightgray, 0.5);
+      text-align: center;
+      clear: both; }
+  .hpp:before { content: ''; display: block; float: left; margin: 0 $ajy-spacing 0 0; width: 100px;
+      font-size: remCalc(100px); font-family: 'FontAwesome'; color: $blue; text-align: center;
+      line-height: 100px; 
+      @include text-shadow(0 2px 4px rgba($darkgray, 0.25));
+      @include transition(all 0.3s ease-in);
+  }
+  .hpp:hover:before { color: lighten($blue, 15); }
+  .hp-planning:before { content: '\f0eb'; }
+  .hp-design:before { content: '\f03e'; }
+  .hp-dev:before { content: '\f085'; }
+  .hp-pl:before { content: '\f11e'; }
+}
+
+.home.circleorange .archive { margin-bottom: 0; min-height: 275px; }
+
+//Circle Orange - Portfolio
+.orbit-container .orbit-prev, .orbit-container .orbit-next { top: 0; margin-top: 0; }
+.orbit-container { border-top: 2px solid rgba($blue, 0.6); }
+.p-dex { 
+  h2 { margin-top: $ajy-spacing; }
+}
+.p-buttons a { @include ajy-button(); margin-bottom: 1.5rem; }
+.p-gallery { display: none; clear: both; @include pie-clearfix(); padding-top: $ajy-spacing / 2; } //hiding this for now.
+.p-gallery li > a > img { width: 150px; }
+
+
+@media only screen and (min-width: 410px) {
+  .home .site-content { padding-top: 80px; }
+  
+  //circle orange - home
+  .hp-portfolio { 
+    .hp-portfolio-img { @include grid-col(50%, left, side);
+        float: left; padding-left: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .hp-how { padding-bottom: 1px; @include pie-clearfix;
+    .hp-how-widget { @include grid-col(50%, left, side);
+        height: 320px; }
+  }
+  .p-img { @include grid-col(50%, left, all); }
+}
+
+@media only screen and (min-width: 600px) {
+  .home-buttons { text-align: center;
+    a { display: inline-block; margin: 0 $ajy-spacing $ajy-spacing / 2 0; float: none; }
+    a:last-of-type { margin-right: 0; }
+  }
+  .hp-how { padding-bottom: 0;
+    .hp-how-widget { height: 250px; }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .site-content {
+  > article {
+      .archive-articles { @include column-count(2);
+          @include column-gap($ajy-spacing); }
+      .archive { @include column-break-inside(avoid);
+          //@include break-inside(avoid); //apparently this is not real in Compass although I could write it if it's worth it
+          display: table; //works better than column-break-inside
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .site-content {
+    h1, .big-title { display: table; width: 100%;
+        white-space: nowrap; text-align: center; }
+    h1:before, h1:after, .big-title:before, .big-title:after { content: ''; width: 50%; display: table-cell;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB2ZXJzaW9uPSIxLjEiCiAgIHdpZHRoPSIxMiIKICAgaGVpZ2h0PSIxMiIKICAgaWQ9InN2ZzIiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM0Ij4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50Mzc3MSI+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzc3MyIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6I2MwYzVjZTtzdG9wLW9wYWNpdHk6MSIKICAgICAgICAgb2Zmc2V0PSIwIiAvPgogICAgICA8c3RvcAogICAgICAgICBpZD0ic3RvcDM3ODEiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiNjMGM1Y2U7c3RvcC1vcGFjaXR5OjEiCiAgICAgICAgIG9mZnNldD0iMC4wNSIgLz4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AzNzc5IgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojYzBjNWNlO3N0b3Atb3BhY2l0eTowIgogICAgICAgICBvZmZzZXQ9IjAuMDUiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzc4MyIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6I2MwYzVjZTtzdG9wLW9wYWNpdHk6MCIKICAgICAgICAgb2Zmc2V0PSIwLjEiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzc4NSIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6I2MwYzVjZTtzdG9wLW9wYWNpdHk6MSIKICAgICAgICAgb2Zmc2V0PSIwLjEiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzc4NyIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6I2MwYzVjZTtzdG9wLW9wYWNpdHk6MSIKICAgICAgICAgb2Zmc2V0PSIwLjE1MDAwMDAxIiAvPgogICAgICA8c3RvcAogICAgICAgICBpZD0ic3RvcDM3NzUiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiNmZjkwMjM7c3RvcC1vcGFjaXR5OjAiCiAgICAgICAgIG9mZnNldD0iMSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTciPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxnCiAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwtMTA0MC4zNjIyKSIKICAgICBpZD0ibGF5ZXIxIj4KICAgIDxwYXRoCiAgICAgICBkPSJtIDAsMTA0MC4zNjIyIDEsMCAtMSwxIHoiCiAgICAgICBpZD0icGF0aDM3OTEiCiAgICAgICBzdHlsZT0iZmlsbDojYzBjNWNlO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Im0gMCwxMDQ0LjM2MjIgMCwxIDUsLTUgLTEsMCB6IgogICAgICAgaWQ9InBhdGgzNzk1IgogICAgICAgc3R5bGU9ImZpbGw6I2MwYzVjZTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZSIgLz4KICAgIDxwYXRoCiAgICAgICBkPSJtIDgsMTA0MC4zNjIyIC04LDggMCwxIDksLTkgeiIKICAgICAgIGlkPSJwYXRoMzc5OSIKICAgICAgIHN0eWxlPSJmaWxsOiNjMGM1Y2U7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmUiIC8+CiAgICA8cGF0aAogICAgICAgZD0iTSAxMiwwIDAsMTIgMSwxMiAxMiwxIHoiCiAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLDEwNDAuMzYyMikiCiAgICAgICBpZD0icGF0aDM4MzAiCiAgICAgICBzdHlsZT0iZmlsbDojYzBjNWNlO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Im0gNCwxMiAxLDAgNywtNyAwLC0xIHoiCiAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLDEwNDAuMzYyMikiCiAgICAgICBpZD0icGF0aDM4MzIiCiAgICAgICBzdHlsZT0iZmlsbDojYzBjNWNlO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgogICAgPHBhdGgKICAgICAgIGQ9Im0gOCwxMiA0LC00IDAsMSAtMywzIHoiCiAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLDEwNDAuMzYyMikiCiAgICAgICBpZD0icGF0aDM4MzQiCiAgICAgICBzdHlsZT0iZmlsbDojYzBjNWNlO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgogIDwvZz4KPC9zdmc+Cg==) repeat-x center center;
+        @include background-clip(padding-box); }
+    h1:before, .big-title:before { border-right: 10px solid transparent; }
+    h1:after, .big-title:after { border-left: 10px solid transparent; }
+    > article {
+      .archive-articles { @include column-count(3); }
+    }
+  }
+  .single {
+    .featuredimage { padding: 0 $ajy-spacing; }
+      article footer .ajy-social { width: auto;
+          @include border-right-radius(0); }
+      article footer .boilerplate { display: block; padding: $ajy-spacing / 2; margin-bottom: $ajy-spacing; height: 100px;
+          background: $midgray; border: 1px solid darken($midgray, 10);
+          font-family: $header-font-family; font-size: remCalc(16px); font-weight: bold;
+          @include border-radius($ajy-radius);
+        p { margin-top: 8px; }
+      }
+  }
+  .page {
+    .featuredimage { padding: 0 $ajy-spacing; }
+  }
+  
+  //circle orange - homepage
+  .hp-portfolio { 
+    .hp-portfolio-img { @include grid-col(65%, left, side);
+        padding-left: 0;
+    }
+    .hp-portfolio-desc { @include grid-col(35%, right, side);
+        padding-right: 0;
+    }
+  }
+  
+  .hp-how { width: 85%;
+    .hp-how-widget { @include grid-col(50%, left, all); }
+    //.hpp { padding-right: 80px; }
+    .hpp:before { margin: 0 $ajy-spacing $ajy-spacing 0; width: 150px; }
+  }
+  
+  .p-img { @include grid-col(66%, left, no);
+      padding-right: $ajy-spacing; }
+  .p-dex { @include grid-col(34%, right, no);
+      padding-left: $ajy-spacing;
+    h2 { margin-top: $ajy-spacing; }
+  }
+}

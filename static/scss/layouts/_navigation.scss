@@ -1,0 +1,40 @@
+//body classes... we push the body to the right while opening the menu from the left
+.body-push { position: relative; left: 0; overflow-x: hidden;
+  @include transition(left 0.3s ease-in); }
+.body-push-right { left: 240px; } //when it's pushed
+
+.navigation-main { position: absolute; top: 0; left: 0; bottom: 0; width: 60px;
+    color: $nav-color; font-weight: 300; font-family: $header-font-family; text-transform: uppercase;
+  .menu-toggle { display: block; height: 100px + $ajy-spacing * 2;
+      color: $midgray;
+      cursor: pointer; }
+  i { display: block; height: 100px + $ajy-spacing * 2;
+      font-size: remCalc(36px); line-height: 100px; }
+  ul { position: fixed; width: 240px; height: 100%; top: 0; left: -240px;
+      background: $nav-bg;
+      line-height: $nav-height;
+      z-index: 1000;
+      @include transition(left 0.3s ease-in);
+    li {
+      a { display: block; padding: 0 $ajy-spacing / 2;
+          color: $nav-color; text-decoration: none;
+          @include transition(background .15s ease-in); }
+      a:hover { background: lighten($nav-bg, 15); }
+      a:hover, a:visited { color: $nav-color; }
+    }
+    li.divided { border-top: 1px solid $lightgray; }
+    ul { position: static; height: auto; top: auto; left: auto; width: auto;
+        background: transparent; border-left: 1px dashed $midgray;
+        line-height: .85 * $nav-height; 
+        z-index: auto;
+      li { }
+    }
+  }
+  ul.menu-open { left: 0; }
+}
+
+@media only screen and (min-width: 500px) {
+  .navigation-main {
+    i { line-height: 100px + $ajy-spacing * 2; }
+  }
+}

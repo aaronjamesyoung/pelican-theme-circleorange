@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block metadata %}
+<title>Oregon Strategic Web Design & Development - Circle Orange</title>
+<meta name="description" content="{{ page.summary|striptags }}"/>
+<link rel="canonical" href="http://circleorange.com/" />
+{% endblock metadata %}
+
+{% block bodyclass %}home circleorange{% endblock bodyclass %}
+
+{% block headline %}
+<a href="http://ajy.co/contact-me/" class="header-cta">Start your project</a>
+<h1 class="site-title">
+  <a href="http://circleorange.com" class="logo">
+    <img src="{{ SITEURL }}/theme/graphics/logo-co.svg" alt="Circle Orange" />
+    Circle Orange
+  </a>
+</h1>
+<div class="tagline">
+  <p>Circle Orange is the Oregon-based web design and development studio of <a href="{{ SITEURL }}">Aaron James Young</a>.
+</div>
+{% endblock headline %}
+
+{% block navmenu %}
+<ul>
+  <li><a href="http://circleorange.com">Home</a></li>
+  <li><a href="http://circleorange.com/portfolio/">Web Portfolio</a></li>
+  <!-- <li><a href="http://circleorange.com/process/">The Process</a></li> -->
+  <li><a href="http://circleorange.com/services/">Services</a></li>
+  <li><a href="http://ajy.co/contact-me/">Contact Me</a></li>
+  <li class="divided"><a href="http://ajy.co">AJY.co</a></li>
+</ul>
+{% endblock navmenu %}
+
+{% block content %}
+  <!-- <section class="home-about">
+    <img src="{{ SITEURL }}/theme/graphics/HANNA.jpg" class="alignleft" />
+    <p>
+      Welcome! Circle Orange is a one-man website agency based in Oregon and run by <a href="http://ajy.co">
+      Aaron James Young</a>. I've worked for 6 years designing and developing
+      quality websites.
+    </p>
+    <p>
+      I work on full website design and development projects for medium- to large-sized
+      businesses and organizations. And, as a specialist in front-end web development and WordPress
+      development, I'm also available for design agencies as a contract web developer.
+    </p>
+    <p class="home-buttons orange">
+      <a href="http://circleorange.com/portfolio">See my Work</a>
+      <a href="http://circleorange.com/contact">Get in Touch</a>
+    </p>
+  </section> -->
+  
+  <h2 class="big-title">The Work</h2>
+  <section class="hp-portfolio">
+    <!-- showcase work here. Either show one or do a slideshow -->
+    <div class="hp-portfolio-img">
+      <img src="http://ajy.co/images/portfolio/ote.png" />
+    </div>
+    <div class="hp-portfolio-desc">
+      <h3>Oregon Travel Experience - <span>Summer/Fall 2011</span></h3>
+      <p>
+        OTE is a semi-independent state agency that manages Oregon's blue highway signs, several rest
+        areas in the state, and the Heritage Trees and Historical Markers scattered throughout Oregon.
+        This project was part of a large rebranding effort by OTE.
+      </p>
+      <p>
+        In this project, I developed a design built for OTE by another web agency. During the course
+        of the project, we had to make some minor changes to the design due to a shifting sense of
+        how this website would serve OTE's mission. Other than these changes, the live website is faithful
+        to the original design created for OTE.
+      </p>
+      <p>
+        I created a custom WordPress theme, building in functionality to help OTE
+        administer the website and increase user engagement. The theme is responsive and search-friendly.
+      </p>
+      <p>
+        <a href="http://circleorange.com/portfolio" class="ajy-button">See full portfolio</a>
+      </p>
+    </div>
+  </section>
+  
+    <h2 class="big-title">How I Work</h2>
+  <section class="hp-how">
+    <!-- use line icons here instead. Would look MUCH better than this -->
+    <!-- make this stuff shorter -->
+    <div class="hp-how-widget">
+      <h3>Planning</h3><!-- icon-lightbulb -->
+      <p class="hpp hp-planning">
+        The most important part. We'll decide how to craft a web experience that will help you meet your
+        goals.
+        <!--
+        Before building a website, it's important to know what content will be on the site, who will be using the site, and how you will be
+        updating the site. I will work with you to create a website strategy so we have a roadmap to
+        design and develop a website that works best for you and your users. We'll also talk about how
+        the website will be maintained after launch.
+  -->
+      </p>
+    </div>
+    <div class="hp-how-widget">
+      <h3>Design</h3><!-- icon-edit-sign -->
+      <p class="hpp hp-design">
+        This is the fun part. Here we'll create a design that reflects your values and engages your users.
+        <!-- I will create and iterate on a design that fits your goals, engages your users, and reflects
+        your values. The design process is intentional and thorough. -->
+    </p>
+    </div>
+    <div class="hp-how-widget">
+      <h3>Development</h3><!-- icon-keyboard -->
+      <p class="hpp hp-dev">
+        The hard part. We'll build a working responsive website, add content, and get it ready for the world.
+        <!-- Together, we'll choose the best platform for building your website. In many cases, WordPress
+        is a great option and it's my area of specialty. I develop using up-to-date techniques and
+        search-friendly markup. I build responsive websites that work on any screen size.
+        We'll work together to add content to the website during the development phase, and start
+        implementing the strategy that we discussed earlier in the process. -->
+    </p>
+    </div>
+    <div class="hp-how-widget">
+      <h3>Post-launch</h3><!-- icon-flag-checkered -->
+      <p class="hpp hp-pl">
+        Celebrate! Then after launch, we'll help you with content strategy and make improvements as needed.
+        <!-- After launching the website, I'll work with you to help you follow through on your website
+        content strategy. We'll meet periodically to discuss how the site is performing and what could
+        be changed to help you or your users. -->
+      </p>
+    </div>
+    <!-- <p class="home-buttons">
+      <a href="http://circleorange.com/process">More about the process</a>
+    </p> -->
+  </section>
+  
+  <h2 class="big-title">From the Blog</h2>
+  <h4>Read my blog at <a href="http://ajy.co">http://ajy.co</a></h4>
+  <section class="archive-articles" data-columns>
+  {% for article in articles %}
+    {% if loop.index < 4 %}
+    <article class="archive {{ article.postformat }}"> <!-- <empty>, image, short, or link -->
+      <!-- might need to also add video someday -->
+      <!-- mostly, hide or show these things differently w/ css. -->
+      <!-- I don't need no freakin category links here -->
+      <h3>{{ article.title }}</h3>
+      <p class="date">{{ article.locale_date }}</p>
+      {% if article.featimg %}
+        <div class="archive-thumb">
+          <img src="{{ SITEURL }}/images/featured/small/{{ article.featimg }}" alt="{{ article.title }}" />
+        </div>
+      {% endif %}
+      {% if article.summary %}
+        <p class="archive-summary">{{ article.summary|striptags }}</p>
+      {% endif %}
+      <p class="archive-links">
+        <a href="{{ SITEURL }}/{{ article.url }}/">Read More</a>
+      {% if article.destination %}<!-- link posts -->
+        <a href="{{ article.destination }}">Follow Link</a>
+      {% endif %}
+      </p>
+    </article>
+    {% endif %}
+  {% endfor %}
+  </section>
+{% endblock content %}
+
+{% block footer %}
+      <div class="ajy-social">
+        <a href="http://plus.google.com/109689338786007219373?rel=author" class="googleplusalt" rel="author" data-title="Google Plus">Google Plus</a>
+        <a href="http://twitter.com/aaronjamesyoung" class="twitter" data-title="Twitter">Twitter</a>
+        <a href="http://facebook.com/aaronjamesyoung" class="facebook" data-title="Facebook">Facebook</a>
+        <a href="http://forrst.me/aaronjamesyoung" class="forrst" data-title="Forrst">Forrst</a>
+        <a href="http://github.com/aaronjamesyoung" class="github" data-title="Github">Github</a>
+        <a href="http://ajy.co" class="rdio" data-title="Aaron James Young">Aaron James Young</a>
+        <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" class="rss" data-title="RSS Feed">RSS Feed</a>
+      </div>
+      <div class="credits">
+        <p>
+          All content &amp; design on this site Copyright &copy; 2013, Aaron James Young</p>
+        <p>
+          Website powered by <a href="http://getpelican.com/">Pelican</a>
+        </p>
+      </div>
+      {% endblock footer %}
+
+{% block scripts %}
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <!-- <script src="{{ SITEURL }}/theme/js/masonry.pkgd.min.js"></script> -->
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.clearing.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.forms.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.orbit.js"></script>
+  <script src="{{ SITEURL }}/theme/js/ajy.js"></script>
+  <script type="text/javascript">
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+  <!-- Piwik -->
+  <script type="text/javascript">
+  var pkBaseURL = (("https:" == document.location.protocol) ? "https://ajy.co/+/" : "http://ajy.co/+/");
+  document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+  </script><script type="text/javascript">
+  try {
+  var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+  piwikTracker.trackPageView();
+  piwikTracker.enableLinkTracking();
+  } catch( err ) {}
+  </script><noscript><p><img src="http://ajy.co/+/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+  <!-- End Piwik Tracking Code -->
+  {% endblock scripts %}

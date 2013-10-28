@@ -1,0 +1,311 @@
+//type sizes
+$base-font-size: 18px;
+  $rem-base: $base-font-size;
+  $em-base: $base-font-size;
+
+// ---- FUNCTIONS ------------------------------------------------------------------------------- //
+
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// Converts "px" to "em" using the ($)em-base
+@function convert-to-em($value) {
+  $value: strip-unit($value) / strip-unit($em-base) * 1em;
+  @if ($value == 0em) { $value: 0; } // Turn 0em into 0
+  @return $value;
+}
+
+// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#)
+// Just enter the number, no need to mention "px"
+@function emCalc($values...) {
+  $max: length($values); // Get the total number of parameters passed
+
+  // If there is only 1 parameter, then return it as an integer.
+  // This is done because a list can't be multiplied or divided even if it contains a single value
+  @if $max == 1 { @return convert-to-em(nth($values, 1)); }
+
+  $emValues: (); // This will eventually store the converted $values in a list
+  @for $i from 1 through $max {
+    $emValues: append($emValues, convert-to-em(nth($values, $i)));
+  }
+  @return $emValues;
+}
+
+// Converts "px" to "rem" using the ($)rem-base
+@function convert-to-rem($value) {
+  $value: strip-unit($value) / strip-unit($rem-base) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0em into 0
+  @return $value;
+}
+
+@function remCalc($values...) {
+  $max: length($values);
+  @if $max == 1 { @return convert-to-rem(nth($values, 1)); }
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i)));
+  }
+  @return $remValues;
+}
+
+// ---- PROJECT VARIABLES ----------------------------------------------------------------------- //
+
+//grayscale colors - from base16 ocean
+$white: #eff1f5;
+$lightgray: #c0c5ce;
+$midgray: #65737e;
+$darkgray: #343d46;
+$black: #2b303b;
+
+//base16 ocean colors- good starting point
+$red: #bf616a;
+$orange: #d08770;
+$yellow: #ebcb8b;
+$green: #a3be8c;
+$cyan: #96b5b4;
+$blue: #8fa1b3;
+$purple: #b48ead;
+$brown: #ab7967;
+
+//spacing + roundness
+$ajy-spacing: 24px;
+$ajy-radius: 4px;
+
+//type sizes
+//see base font size up above
+$base-line-height: remCalc(27px); // = 1.5rem
+
+$body-font-family: 'Marta', 'Times New Roman', serif;
+$body-font-color: $darkgray;
+
+$header-font-family: 'Raleway', 'Liberation Sans', sans-serif;
+$header-font-weight: 700;
+$header-font-color: $white;
+$h6-font-color: $lightgray;
+
+$h1-font-size: remCalc(32px); //See http://www.w3.org/TR/CSS21/sample.html, that's where I got h1-h3 sizes from
+$h2-font-size: remCalc(24px);
+$h3-font-size: remCalc(19px);
+$h4-font-size: 1rem;
+$h5-font-size: 1rem; //w3 recommends smaller sizes for h5 and h6 but I kept them at one rem and changed font color.
+$h6-font-size: 1rem;
+
+$blockquote-color: $midgray;
+
+//max-width
+//$row-width: emCalc(1000px); 
+$row-width: 90%;
+
+//Main Menu
+$nav-height: 50px;
+$nav-bg: $midgray;
+$nav-color: $lightgray;
+//$nav-sub-width: emCalc(200);
+$nav-sub-width: 200px;
+$nav-sub-bg: $darkgray;
+$nav-sub-color: $lightgray;
+
+//Aaron note... override for Foundation variables (colors)
+$primary-color: $blue;
+$secondary-color: $lightgray;
+$alert-color: $red;
+$success-color: $green;
+
+//Override Foundation variables
+$include-html-classes: false;
+$include-print-styles: false;
+$include-html-global-classes: $include-html-classes;
+$include-html-inline-list-classes: $include-html-classes;
+$include-html-type-classes: $include-html-classes;
+$include-html-grid-classes: $include-html-classes;
+$include-html-visibility-classes: $include-html-classes;
+$include-html-button-classes: true;
+$include-html-form-classes: true;
+$include-html-custom-form-classes: $include-html-classes;
+$include-html-media-classes: $include-html-classes;
+$include-html-section-classes: $include-html-classes;
+$include-html-orbit-classes: true;
+$include-html-reveal-classes: $include-html-classes;
+$include-html-joyride-classes: $include-html-classes;
+$include-html-clearing-classes: true;
+$include-html-alert-classes: $include-html-classes;
+$include-html-nav-classes: $include-html-classes;
+$include-html-top-bar-classes: $include-html-classes;
+$include-html-label-classes: $include-html-classes;
+$include-html-panel-classes: $include-html-classes;
+$include-html-pricing-classes: $include-html-classes;
+$include-html-progress-classes: $include-html-classes;
+$include-html-magellan-classes: $include-html-classes;
+$include-html-tooltip-classes: $include-html-classes;
+
+//
+// Form Variables - from Foundation
+//
+
+// We use this to set the base for lots of form spacing and positioning styles
+
+// $form-spacing: emCalc(16);
+
+// We use these to style the labels in different ways
+
+// $form-label-pointer: pointer;
+$form-label-font-size: emCalc(16px);
+// $form-label-font-weight: 500;
+$form-label-font-color: $white;
+// $form-label-bottom-margin: emCalc(3);
+// $input-font-family: inherit;
+$input-font-color: rgba($black,0.75);
+// $input-font-size: emCalc(14);
+$input-bg-color: $white;
+$input-focus-bg-color: darken($white, 2%);
+$input-border-color: $lightgray;
+$input-focus-border-color: darken($lightgray, 40%);
+// $input-border-style: solid;
+// $input-border-width: 1px;
+// $input-disabled-bg: #ddd;
+$input-box-shadow: inset 0 1px 2px rgba($black,0.1);
+// $input-include-glowing-effect: true;
+
+//
+// Orbit variables - from Foundation
+//
+
+// We use these to control the caption styles
+
+// $orbit-container-bg: #f5f5f5;
+// $orbit-caption-bg: rgba(0,0,0,0.6);
+// $orbit-caption-font-color: #fff;
+// $orbit-caption-font-size: emCalc(14);
+// $orbit-caption-position: "bottom";    // Supported values: "bottom", "under"
+// $orbit-caption-padding: emCalc(10,14);
+// $orbit-caption-height: auto;
+
+// We use these to control the left/right nav styles
+
+$orbit-nav-bg: rgba($blue,0.6);
+$orbit-nav-bg-hover: rgba($blue,0.6);
+$orbit-nav-arrow-color: $lightgray;
+$orbit-nav-arrow-color-hover: $white;
+
+// We use these to control the timer styles
+
+// $orbit-timer-bg: rgba(0,0,0,0.6);
+// $orbit-timer-show-progress-bar: true;
+
+// We use these to control the bullet nav styles
+
+// $orbit-bullet-nav-color: #999;
+// $orbit-bullet-nav-color-active: #555;
+// $orbit-bullet-radius: emCalc(18);
+
+// We use these to controls the style of slide numbers
+
+// $orbit-slide-number-bg: rgba(0,0,0,0);
+// $orbit-slide-number-font-color: #fff;
+// $orbit-slide-number-padding: em-calc(5);
+
+// Graceful Loading Wrapper and preloader
+
+// $wrapper-class: "slideshow-wrapper";
+// $preloader-class: "preloader";
+
+//
+// Clearing Variables - from Foundation
+//
+
+// We use these to set the background colors for parts of Clearing.
+
+$clearing-bg: $black;
+// $clearing-caption-bg: $clearing-bg;
+$clearing-carousel-bg: $black;
+// $clearing-img-bg: $clearing-bg;
+
+// We use these to style the close button
+
+$clearing-close-color: $white;
+// $clearing-close-size: 40px;
+
+// We use these to style the arrows
+
+// $clearing-arrow-size: 16px;
+// $clearing-arrow-color: $clearing-close-color;
+
+// We use these to style captions
+
+$clearing-caption-font-color: $white;
+// $clearing-caption-padding: 10px 30px;
+
+// We use these to make the image and carousel height and style
+
+// $clearing-active-img-height: 75%;
+// $clearing-carousel-height: 150px;
+// $clearing-carousel-thumb-width: 175px;
+$clearing-carousel-thumb-active-border: 4px solid rgba($white, 0.6);
+
+//
+// Form Variables
+//
+
+// We use this to set the base for lots of form spacing and positioning styles
+
+// $form-spacing: em-calc(16);
+
+// We use these to style the labels in different ways
+
+// $form-label-pointer: pointer;
+$form-label-font-size: emCalc(16px);
+$form-label-font-weight: normal;
+// $form-label-font-color: lighten(#000, 30%);
+// $form-label-bottom-margin: em-calc(3);
+// $input-font-family: inherit;
+// $input-font-color: rgba(0,0,0,0.75);
+// $input-font-size: em-calc(14);
+$input-bg-color: $midgray;
+$input-focus-bg-color: $lightgray;
+$input-border-color: $midgray;
+$input-focus-border-color: $lightgray;
+// $input-border-style: solid;
+// $input-border-width: 1px;
+// $input-disabled-bg: #ddd;
+// $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+$input-include-glowing-effect: false;
+
+// We use these to style the fieldset border and spacing.
+
+// $fieldset-border-style: solid;
+// $fieldset-border-width: 1px;
+// $fieldset-border-color: #ddd;
+// $fieldset-padding: em-calc(20);
+// $fieldset-margin: em-calc(18 0);
+
+// We use these to style the legends when you use them
+
+// $legend-bg: #fff;
+// $legend-font-weight: bold;
+// $legend-padding: em-calc(0 3);
+
+// We use these to style the prefix and postfix input elements
+
+// $input-prefix-bg: darken(#fff, 5%);
+// $input-prefix-border-color: darken(#fff, 20%);
+// $input-prefix-border-size: 1px;
+// $input-prefix-border-type: solid;
+// $input-prefix-overflow: hidden;
+// $input-prefix-font-color: #333;
+// $input-prefix-font-color-alt: #fff;
+
+// We use these to style the error states for inputs and labels
+
+// $input-error-message-padding: em-calc(6 4);
+// $input-error-message-top: 0;
+// $input-error-message-font-size: em-calc(12);
+// $input-error-message-font-weight: bold;
+// $input-error-message-font-color: #fff;
+// $input-error-message-font-color-alt: #333;
+
+// We use this to style the glowing effect of inputs when focused
+
+// $glowing-effect-fade-time: 0.45s;
+// $glowing-effect-color: $input-focus-border-color;

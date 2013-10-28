@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block metadata %}
+<title>Posts by {{ author }}, page {{ articles_page.number }} - {{ SITENAME }}</title>
+{% if articles_page.number == 1 %}
+<link rel="canonical" href="{{ SITEURL }}/{{ page_name }}/" />
+{% else %}
+<link rel="canonical" href="{{ SITEURL }}/{{ page_name }}/index{{ articles_page.number }}/" />
+{% endif %}
+{% endblock metadata %}
+
+{% block bodyclass %}index author{% endblock bodyclass %}
+
+{% block content %}
+<h1>Posts by {{ author }}, page {{ articles_page.number }}</h1>
+{{ super() }}
+{% endblock content %}

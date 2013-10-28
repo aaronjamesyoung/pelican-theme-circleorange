@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--[if lte IE 7]><html class="ie7" lang="en-US"><![endif]-->
+<!--[if (gt IE 7)|!(IE)]><! --><html lang="en-US"><!-- <![endif]-->
+<head>
+
+  <!--MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM         MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM             MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM  ,            MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMM MMMMMMMMMMMMMMMM,M             MMMMMMMMMMMMMMMM MMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMM  MMMMMMMMMMMMMM + MMM   MMM + MMMMMMMMMMMMMM  ZMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMI  ~MMMMMMMMMMMM ?MMMM   MMM=M MMMMMMMMMMMMM  $MMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMM   7MMMMMMMMMM      MMM      MMMMMMMMMMM   MMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMM    MMMMMMMMMM8    \M/    8MMMMMMMMMM?   NMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMM7    NMMMMMMMM M+     7$?MMMMMMMMM     MMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMM     7MMMMMM  M+Z?,MM MMMMMMMN     MMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMM     ~MMMM  M~N=+M  MMMMMI     MMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMM?     IMMM       MMM+/    +MMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMZ     \8MMMMMMM~7     MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMM   MMMMNMM    IMMOM:M    MMNMMMMNMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMM MMMMMMMZ:N        =NMMMMMMMN  ZMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMM= ~I7~IM  M7+        M+       ~=+7M  MMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMM   8    M  M  .,+$MMMMMMMM7=,. $M  M,    $  MMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMM8MMMMMMM  MMMMMMMMMMMMMMMMMMMMM  NMMMN MZMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMO   MMMMMMMMMMMMMMN   ZMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMM> ABANDON HOPE ALL YE WHO ENTER HERE <MMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM-->
+  
+  {% block head %}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width" />
+  <!-- improve rankings in bing: http://www.bing.com/blogs/site_blogs/b/webmaster/archive/2013/04/01/empowering-webmasters-to-rank-better-the-seo-tag.aspx -->
+  <link rel="seo" query="awesome web designer" set_to_position="3" />
+  <link rel="seo" must_be_before="*.happycog.com" />
+  {% block metadata %}
+  {% endblock metadata %}
+  <meta name="keywords" content="winning, winner" />
+  <meta name="google-site-verification" content="LJCzP8R76YVhsl7vFSfvBL8FBpXyMMGCbcMs6v4G7oI" />
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  {% if FEED_ALL_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+  {% endif %}
+  {% if FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+  {% endif %}
+  {% if FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+  {% endif %}
+  {% if TAG_FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+  {% endif %}
+  {% if TAG_FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+  {% endif %}
+
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/vendor/custom.modernizr.js"></script>
+  {% endblock head %}
+</head>
+
+<body class="{% block bodyclass %}{% endblock bodyclass %}">
+  <header id="masthead" class="site-header" role="banner">
+    {% block headline %}
+    <h4 class="site-title title-ajy">
+      <a href="{{ SITEURL }}" class="logo">
+        <img src="{{ SITEURL}}/theme/graphics/logo-ajy.svg" alt="AJY" />
+        Aaron James Young
+      </a>
+    </h4>
+    {% endblock headline %}
+    <nav id="site-navigation" class="navigation-main" role="navigation">
+      <h5 class="menu-toggle">
+        <i class="icon-th"></i>
+      </h5>
+      <div class="screen-reader-text skip-link">
+        <a href="#content" title="Skip to Content">Skip to Content</a>
+      </div>
+      {% block navmenu %}
+      <ul>
+        <li><a href="{{ SITEURL }}">Home</a></li>
+        <li><a href="{{ SITEURL }}/about-me/">About Me</a></li>
+        <li><a href="{{ SITEURL }}/web/">Blog/Web</a></li>
+        <li><a href="{{ SITEURL }}/linux/">Blog/Linux</a></li>
+        <li><a href="{{ SITEURL }}/personal/">Blog/Personal</a></li>
+        <li><a href="{{ SITEURL }}/contact-me/">Contact Me</a></li>
+        <li class="divided"><a href="http://circleorange.com">Circle Orange</a></li>
+      </ul>
+      {% endblock navmenu %}
+    </nav>
+  </header>
+  <section class="site-content" id="content" role="main">
+  {% block sitecontent %}
+    <article>
+      {% block featured %}
+      {% endblock featured %}
+      {% block content %}
+      {% endblock content %}
+    </article>
+  {% endblock sitecontent %}
+  </section>
+  <footer class="site-footer" role="contentinfo">
+    <div>
+      {% block footer %}
+      <div class="ajy-social">
+        <a href="http://plus.google.com/109689338786007219373?rel=author" class="googleplusalt" rel="author" data-title="Google Plus">Google Plus</a>
+        <a href="http://twitter.com/aaronjamesyoung" class="twitter" data-title="Twitter">Twitter</a>
+        <a href="http://facebook.com/aaronjamesyoung" class="facebook" data-title="Facebook">Facebook</a>
+        <a href="http://forrst.me/aaronjamesyoung" class="forrst" data-title="Forrst">Forrst</a>
+        <a href="http://github.com/aaronjamesyoung" class="github" data-title="Github">Github</a>
+        <a href="http://circleorange.com" class="circleorange" data-title="Circle Orange">Circle Orange</a>
+        <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" class="rss" data-title="RSS Feed">RSS Feed</a>
+      </div>
+      <div class="credits">
+        <p>
+          All content &amp; design on this site Copyright &copy; 2013, Aaron James Young</p>
+        <p>
+          Website powered by <a href="http://getpelican.com/">Pelican</a>
+        </p>
+      </div>
+      {% endblock footer %}
+    </div>
+  </footer>
+  {% block scripts %}
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.clearing.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.forms.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.orbit.js"></script>
+  <script src="{{ SITEURL }}/theme/js/ajy.js"></script>
+  <script type="text/javascript">
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+  <!-- Piwik -->
+  <script type="text/javascript">
+  var pkBaseURL = (("https:" == document.location.protocol) ? "https://ajy.co/+/" : "http://ajy.co/+/");
+  document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+  </script><script type="text/javascript">
+  try {
+  var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+  piwikTracker.trackPageView();
+  piwikTracker.enableLinkTracking();
+  } catch( err ) {}
+  </script><noscript><p><img src="http://ajy.co/+/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+  <!-- End Piwik Tracking Code -->
+  {% endblock scripts %}
+</body>
+</html>

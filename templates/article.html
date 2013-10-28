@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block metadata %}
+<title>{{ article.title }} - {{ SITENAME }}</title>
+<meta name="description" content="{{ article.summary }}"/>
+<link rel="canonical" href="{{ SITEURL }}/{{ article.url }}/" />
+{% endblock metadata %}
+
+{% block bodyclass %}single {{ article.postformat }}{% endblock bodyclass %}
+
+{% block featured %}
+  <header>
+    <h1>{{ article.title }}</h1>
+    <aside class="metadata">
+      <p class="date"><i class="icon-calendar"></i>{{ article.locale_date }}</p>
+      <p class="category"><i class="icon-book"></i><span>Posted In:</span> <a href="{{ SITEURL }}/{{ article.category.url }}/">{{ article.category }}</a></p>
+      {% if article.tags %}
+      <p class="tags"><i class="icon-tag"></i><span>Tagged:</span>
+        {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}/">{{ tag }}</a>{% endfor %}
+      </p>
+      {% endif %}
+    </aside>
+    {% if article.featimg %}
+    <aside class="featuredimage">
+      <img src="{{ SITEURL }}/images/featured/large/{{ article.featimg }}" alt="{{ article.title }}" />
+    </aside>
+    {% endif %}
+  </header>
+{% endblock featured %}
+
+{% block content %}
+  <section>
+    <div>
+      {% if article.postformat == "short" %}
+      <aside class="summary">
+        <p class="excerpt">
+          {{ article.summary|striptags }}
+        </p>
+      </aside>
+      {% elif article.postformat == "link" %}
+      <aside class="summary">
+        <p class="excerpt">
+          <a href="{{ article.destination }}" class="destination">Check it out</a>
+        </p>
+      </aside>
+      {% endif %}
+      {{ article.content }}
+    </div>
+  </section>
+
+  <footer>
+    <aside class="ajy-social">
+      <h3>Share this post:</h3>
+      <a href="http://twitter.com/?status={{ article.title }}%20{{ SITEURL }}/{{ article.url }}" onclick="window.open(this.href); return false;" class="twitter" data-title="Tweet it!">Tweet this post</a>
+      <a href="http://www.facebook.com/sharer.php?u={{ SITEURL }}/{{ article.url }}&amp;t={{ article.title }}" onclick="window.open(this.href); return false;" class="facebook" data-title="Share it!">Share this post on Facebook</a>
+      <div class="ajy-plusone"><g:plusone annotation="none"></g:plusone></div>
+    </aside>
+    <aside class="boilerplate">
+      <p>
+        Aaron James Young is a <a href="http://circleorange.com">Bend, Oregon Web Designer</a>
+        and crazy runner / cyclist. He is husband to Evelyn and father to Hanna.
+      </p>
+    </aside>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'aaronjamesyoung';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </footer>
+{% endblock content %}

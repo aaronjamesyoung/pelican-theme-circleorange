@@ -1,0 +1,36 @@
+{% extends "page-co-home.html" %}
+
+{% block metadata %}
+<title>{{ page.title }} - Circle Orange</title>
+<meta name="description" content="{{ page.summary|striptags }}"/>
+<link rel="canonical" href="http://circleorange.com/{{ page.slug }}/" />
+{% endblock metadata %}
+
+{% block bodyclass %}page circleorange{% endblock bodyclass %}
+
+{% block headline %}
+<a href="http://ajy.co/contact-me/" class="header-cta">Start your project</a>
+<h4 class="site-title">
+  <a href="http://circleorange.com" class="logo">
+    <img src="{{ SITEURL}}/theme/graphics/logo-co.svg" alt="Circle Orange" />
+    Circle Orange
+  </a>
+</h4>
+{% endblock headline %}
+
+{% block featured %}
+<header>
+  <h1>{{ page.title }}</h1>
+  {% if page.featimg %}
+  <aside class="featuredimage">
+    <img src="{{ SITEURL }}/images/featured/large/{{ page.featimg }}" alt="{{ page.title }}" />
+  </aside>
+  {% endif %}
+</header>
+{% endblock featured %}
+
+{% block content %}
+  <section>
+    <div>{{ page.content }}</div>
+  </section>
+{% endblock content %}

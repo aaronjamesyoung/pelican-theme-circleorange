@@ -1,0 +1,17 @@
+@mixin ajy-button { display: block; padding: 3px 12px; float: right; margin: 0 0 0 $ajy-spacing / 2;
+    background: $blue; border: 4px solid rgba($white, 0.6);
+    color: $black; font-family: "FontAwesome", $header-font-family; font-size: remCalc(12px); font-weight: 700;
+    text-transform: uppercase; text-decoration: none;
+    @include border-radius($ajy-radius);
+    @include background-clip(padding-box);
+    @include transition(all 0.15s ease-in);
+  &:before { margin-right: 6px;
+      color: $midgray;
+      @include text-shadow(0 1px 0 $lightgray);
+      @include transition(all 0.15s ease-in);
+      @include icon('\f138'); }
+  &:hover { background: darken($blue, 15);
+      color: $white;
+      @include background-clip(padding-box); }
+  &:hover:before { color: $lightgray; @include text-shadow(0 1px 0 $black); }
+}

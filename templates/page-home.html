@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block metadata %}
+<title>Salem, Oregon Web Design & Development - {{ SITENAME }}</title>
+<meta name="description" content="{{ page.summary }}"/>
+<link rel="canonical" href="{{ SITEURL }}/" />
+{% endblock metadata %}
+
+{% block bodyclass %}home{% endblock bodyclass %}
+
+{% block headline %}
+<h1 class="site-title title-ajy">
+  <a href="{{ SITEURL }}" class="logo">
+    <img src="{{ SITEURL}}/theme/graphics/logo-ajy.svg" alt="AJY" />
+    Aaron James Young
+  </a>
+</h1>
+<div class="tagline">
+  {{ page.summary }}
+</div>
+{% endblock headline %}
+
+{% block content %}
+  <section class="home-about">
+    <img src="{{ SITEURL }}/theme/graphics/HANNA.jpg" class="alignleft" />
+    <p>
+      I am the face behind Circle Orange, a new web studio focusing on comprehensive web solutions
+      medium- to large-sized businesses and organizations. To find out more about my web work, visit
+      <a href="http://circleorange.com">Circle Orange</a> or read my blog entries here.
+    </p>
+    <p>
+      I'm also a Linux enthusiast and crazy runner/cyclist. I like finding the biggest hill I can,
+      and riding my bike up.
+    </p>
+    <p>
+      This site features my blog about various topics that interest me, including the web work that I
+      do. Read on and let me know what you think!
+    </p>
+  </section>
+  
+  <h2 class="big-title">From the Blog</h2>
+  <section class="archive-articles" data-columns>
+  {% for article in articles %}
+    {% if loop.index < 10 %}
+    <article class="archive {{ article.postformat }}"> <!-- <empty>, image, short, or link -->
+      <!-- might need to also add video someday -->
+      <!-- mostly, hide or show these things differently w/ css. -->
+      <!-- I don't need no freakin category links here -->
+      <h3>{{ article.title }}</h3>
+      <p class="date">{{ article.locale_date }}</p>
+      {% if article.featimg %}
+        <div class="archive-thumb">
+          <img src="{{ SITEURL }}/images/featured/small/{{ article.featimg }}" alt="{{ article.title }}" />
+        </div>
+      {% endif %}
+      {% if article.summary %}
+        <p class="archive-summary">{{ article.summary|striptags }}</p>
+      {% endif %}
+      <p class="archive-links">
+        <a href="{{ SITEURL }}/{{ article.url }}/">Read More</a>
+      {% if article.destination %}<!-- link posts -->
+        <a href="{{ article.destination }}">Follow Link</a>
+      {% endif %}
+      </p>
+    </article>
+    {% endif %}
+  {% endfor %}
+  </section>
+{% endblock content %}
+
+{% block scripts %}
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <!-- <script src="{{ SITEURL }}/theme/js/masonry.pkgd.min.js"></script> -->
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.clearing.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.placeholder.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.forms.js"></script>
+  <script src="{{ SITEURL }}/theme/foundation/javascripts/foundation/foundation.orbit.js"></script>
+  <script src="{{ SITEURL }}/theme/js/ajy.js"></script>
+  <script type="text/javascript">
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+  <!-- Piwik -->
+  <script type="text/javascript">
+  var pkBaseURL = (("https:" == document.location.protocol) ? "https://ajy.co/+/" : "http://ajy.co/+/");
+  document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+  </script><script type="text/javascript">
+  try {
+  var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+  piwikTracker.trackPageView();
+  piwikTracker.enableLinkTracking();
+  } catch( err ) {}
+  </script><noscript><p><img src="http://ajy.co/+/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+  <!-- End Piwik Tracking Code -->
+  {% endblock scripts %}

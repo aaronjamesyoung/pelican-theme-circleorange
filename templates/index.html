@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block metadata %}
+<title>Post Archives, page {{ articles_page.number }} - {{ SITENAME }}</title>
+{% if articles_page.number == 1 %}
+<link rel="canonical" href="{{ SITEURL }}/{{ page_name }}/" />
+{% else %}
+<link rel="canonical" href="{{ SITEURL }}/{{ page_name }}/index{{ articles_page.number }}/" />
+{% endif %}
+{% endblock metadata %}
+
+{% block bodyclass %}index{% endblock bodyclass %}
+
+{% block content %}
+{% if articles %}
+  <section class="archive-articles" data-columns>
+  {% for article in articles_page.object_list %}
+    <article class="archive {{ article.postformat }}"> <!-- <empty>, image, short, or link -->
+      <!-- might need to also add video someday -->
+      <!-- mostly, hide or show these things differently w/ css. -->
+      <!-- I don't need no freakin category links here -->
+      <h3>{{ article.title }}</h3>
+      <p class="date">{{ article.locale_date }}</p>
+      {% if article.featimg %}
+        <div class="archive-thumb">
+          <img src="{{ SITEURL }}/images/featured/small/{{ article.featimg }}" alt="{{ article.title }}" />
+        </div>
+      {% endif %}
+      {% if article.summary %}
+        <p class="archive-summary">{{ article.summary|striptags }}</p>
+      {% endif %}
+      <p class="archive-links">
+        <a href="{{ SITEURL }}/{{ article.url }}/">Read More</a>
+      {% if article.destination %}<!-- link posts -->
+        <a href="{{ article.destination }}">Follow Link</a>
+      {% endif %}
+      </p>
+    </article>
+  {% endfor %}
+  </section>
+{% else %}
+<h2>Pages</h2>
+  {% for page in PAGES %}
+    <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+  {% endfor %}
+{% endif %}
+
+{% if DEFAULT_PAGINATION %}
+<p class="paginator">
+    {% if articles_page.has_previous() %}
+        {% if articles_page.previous_page_number() == 1 %}
+            <a href="{{ SITEURL }}/{{ page_name }}/">&laquo; Previous Page</a>
+        {% else %}
+            <a href="{{ SITEURL }}/{{ page_name }}/index{{ articles_page.previous_page_number() }}/">&laquo; Previous Page</a>
+        {% endif %}
+    {% endif %}
+    Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}
+    {% if articles_page.has_next() %}
+        <a href="{{ SITEURL }}/{{ page_name }}/index{{ articles_page.next_page_number() }}/">Next Page &raquo;</a>
+    {% endif %}
+</p>
+{% endif %}
+{% endblock content %}

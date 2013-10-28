@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block metadata %}
+<title>{{ page.title }} - {{ SITENAME }}</title>
+<meta name="description" content="{{ page.summary|striptags }}"/>
+<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}/" />
+{% endblock metadata %}
+
+{% block bodyclass %}page{% endblock bodyclass %}
+
+{% block featured %}
+  <header>
+    <h1>{{ page.title }}</h1>
+    {% if page.featimg %}
+    <aside class="featuredimage">
+      <img src="{{ SITEURL }}/images/featured/large/{{ page.featimg }}" alt="{{ page.title }}" />
+    </aside>
+    {% endif %}
+  </header>
+{% endblock featured %}
+
+{% block content %}
+  <section>
+    <div>{{ page.content }}</div>
+  </section>
+{% endblock content %}
