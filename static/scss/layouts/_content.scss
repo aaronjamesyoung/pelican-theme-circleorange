@@ -42,7 +42,7 @@
     //link - nothing special here
     
     //Pagination
-    .paginator {
+    .paginator { clear: both;
       text-align: center;
     }
   }
@@ -161,8 +161,6 @@
   .hp-pl:before { content: '\f11e'; }
 }
 
-.home.circleorange .archive { margin-bottom: 0; min-height: 275px; }
-
 //Circle Orange - Portfolio
 .orbit-container .orbit-prev, .orbit-container .orbit-next { top: 0; margin-top: 0; }
 .orbit-container { border-top: 2px solid rgba($blue, 0.6); }
@@ -206,12 +204,16 @@
 @media only screen and (min-width: 768px) {
   .site-content {
   > article {
-      .archive-articles { @include column-count(2);
-          @include column-gap($ajy-spacing); }
-      .archive { @include column-break-inside(avoid);
-          //@include break-inside(avoid); //apparently this is not real in Compass although I could write it if it's worth it
-          display: table; //works better than column-break-inside
-      }
+      //.archive-articles { @include column-count(2);
+      //    @include column-gap($ajy-spacing); }
+      //.archive { @include column-break-inside(avoid);
+      //    //@include break-inside(avoid); //apparently this is not real in Compass although I could write it if it's worth it
+      //    display: table; //works better than column-break-inside
+      //}
+      .archive { @include grid-col(47%, left, no);
+          padding: $ajy-spacing * 2 $ajy-spacing / 2 $ajy-spacing / 2 $ajy-spacing / 2; margin-right: 6%; }
+      .archive:nth-of-type(2n - 1) { clear: left; }
+      .archive:nth-of-type(2n) { margin-right: 0; }
     }
   }
 }
@@ -226,7 +228,13 @@
     h1:before, .big-title:before { border-right: 10px solid transparent; }
     h1:after, .big-title:after { border-left: 10px solid transparent; }
     > article {
-      .archive-articles { @include column-count(3); }
+      //.archive-articles { @include column-count(3); }
+      .archive { @include grid-col(30%, left, no);
+          padding: $ajy-spacing * 2 $ajy-spacing / 2 $ajy-spacing / 2 $ajy-spacing / 2; margin-right: 4.5%; }
+          .archive:nth-of-type(2n - 1) { clear: none; }
+      .archive:nth-of-type(2n) { margin-right: 4.5%; }
+      .archive:nth-of-type(3n - 2) { clear: left; }
+      .archive:nth-of-type(3n) { margin-right: 0; }
     }
   }
   .single {

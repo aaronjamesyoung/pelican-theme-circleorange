@@ -20,22 +20,22 @@
   <style>
   @font-face {
     font-family: 'Marta';
-    src: url('font/marta_regular-webfont.eot');
-    src: url('font/marta_regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/marta_regular-webfont.woff') format('woff'),
-         url('font/marta_regular-webfont.ttf') format('truetype'),
-         url('font/marta_regular-webfont.svg#martaregular') format('svg');
+    src: url('http://circleorange.com/font/marta_regular-webfont.eot');
+    src: url('http://circleorange.com/font/marta_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://circleorange.com/font/marta_regular-webfont.woff') format('woff'),
+         url('http://circleorange.com/font/marta_regular-webfont.ttf') format('truetype'),
+         url('http://circleorange.com/font/marta_regular-webfont.svg#martaregular') format('svg');
     font-weight: normal;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'FontAwesome';
-    src: url('font/fontawesome-webfont.eot');
-    src: url('font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-      url('font/fontawesome-webfont.woff') format('woff'),
-      url('font/fontawesome-webfont.ttf') format('truetype'),
-      url('font/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+    src: url('http://circleorange.com/font/fontawesome-webfont.eot');
+    src: url('http://circleorange.com/font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+      url('http://circleorange.com/font/fontawesome-webfont.woff') format('woff'),
+      url('http://circleorange.com/font/fontawesome-webfont.ttf') format('truetype'),
+      url('http://circleorange.com/font/fontawesome-webfont.svg#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
   }
@@ -261,16 +261,19 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
     })();
   </script>
-  <!-- Piwik -->
-  <script type="text/javascript">
-  var pkBaseURL = (("https:" == document.location.protocol) ? "https://ajy.co/+/" : "http://ajy.co/+/");
-  document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-  </script><script type="text/javascript">
-  try {
-  var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
-  piwikTracker.trackPageView();
-  piwikTracker.enableLinkTracking();
-  } catch( err ) {}
-  </script><noscript><p><img src="http://ajy.co/+/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
-  <!-- End Piwik Tracking Code -->
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://ajy.co/+/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "2"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
   {% endblock scripts %}
