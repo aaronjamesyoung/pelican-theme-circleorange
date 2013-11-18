@@ -87,7 +87,8 @@
   }
   article section, article footer { max-width: 1024px; margin: 0 auto; }
   .summary .excerpt { text-align: center; }
-  .summary a { @include ajy-button(); } //link posts
+  .summary a { @include ajy-button();
+      display: inline-block; margin: 0 auto; float: none; } //link posts
   article footer .ajy-social { @include grid-col(auto, left, all);
       margin-right: $ajy-spacing; margin-bottom: $ajy-spacing; height: 100px; width: 100%;
       background: $midgray; border: 1px solid darken($midgray, 10);
